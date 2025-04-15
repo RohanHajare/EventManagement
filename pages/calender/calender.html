@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Rohan Hajare</title>
+    <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css" />
+    <link rel="stylesheet" href="../../assets/vendors/flag-icon-css/css/flag-icon.min.css" />
+    <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css" />
+    <link rel="stylesheet" href="../../assets/css/style.css" />
+    <link rel="shortcut icon" href="../../assets/images/favicon.png" />
+    <!-- FullCalendar CSS -->
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container-scroller">
+  
+
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <div class="text-center sidebar-brand-wrapper d-flex align-items-center">
+          <a class="sidebar-brand brand-logo" href="index.html"><img src="../../assets/images/main_logo.png" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo-mini pl-4 pt-3" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
+        </div>
+        <ul class="nav">
+          <li class="nav-item nav-profile">
+            <a href="#" class="nav-link">
+              <div class="nav-profile-image">
+                <img src="../../assets/images/faces/face15.jpg" alt="profile" />
+                <span class="login-status online"></span>
+                <!--change to offline or busy as needed-->
+              </div>
+              <div class="nav-profile-text d-flex flex-column pr-3">
+                <span class="font-weight-medium mb-2">Rohan Hajare</span>
+                <span class="font-weight-normal"># Event Manager</span>
+              </div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../index.html">
+              <i class="mdi mdi-home menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="../../pages/calender/calender.html">
+              <i class="mdi mdi-contacts menu-icon"></i>
+              <span class="menu-title">Calender</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../pages/forms/basic_elements.html">
+              <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+              <span class="menu-title">Forms</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../pages/event/event.html">
+              <i class="mdi mdi-chart-bar menu-icon"></i>
+              <span class="menu-title">events</span>
+            </a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="../../pages/tables/basic-table.html">
+              <i class="mdi mdi-table-large menu-icon"></i>
+              <span class="menu-title">Tables</span>
+            </a>
+          </li> -->
+          <!-- <li class="nav-item">
+            <span class="nav-link" href="#">
+              <span class="menu-title">Docs</span>
+            </span>
+          </li> -->
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="https://www.bootstrapdash.com/demo/breeze-free/documentation/documentation.html">
+              <i class="mdi mdi-file-document-box menu-icon"></i>
+              <span class="menu-title">Documentation</span>
+            </a>
+          </li> -->
+          <!-- <li class="nav-item sidebar-actions">
+            <div class="nav-link">
+              <div class="mt-4">
+                <div class="border-none">
+                  <p class="text-black">Notification</p>
+                </div>
+                <ul class="mt-4 pl-0">
+                  <li>Sign Out</li>
+                </ul>
+              </div>
+            </div>
+          </li> -->
+        </ul>
+      </nav>
+      <div class="container-fluid page-body-wrapper">
+        <div id="theme-settings" class="settings-panel">
+          <i class="settings-close mdi mdi-close"></i>
+          <p class="settings-heading">SIDEBAR SKINS</p>
+          <div class="sidebar-bg-options selected" id="sidebar-default-theme">
+            <div class="img-ss rounded-circle bg-light border mr-3"></div> Default
+          </div>
+          <div class="sidebar-bg-options" id="sidebar-dark-theme">
+            <div class="img-ss rounded-circle bg-dark border mr-3"></div> Dark
+          </div>
+          <p class="settings-heading mt-2">HEADER SKINS</p>
+          <div class="color-tiles mx-0 px-4">
+            <div class="tiles light"></div>
+            <div class="tiles dark"></div>
+          </div>
+        </div>
+        <nav class="navbar col-lg-12 col-12 p-lg-0 fixed-top d-flex flex-row">
+          <div class="navbar-menu-wrapper d-flex align-items-stretch justify-content-between">
+            <a class="navbar-brand brand-logo-mini align-self-center d-lg-none" href="../../index.html"><img src="../../assets/images/logo-mini.svg" alt="logo" /></a>
+            <button class="navbar-toggler navbar-toggler align-self-center mr-2" type="button" data-toggle="minimize">
+              <i class="mdi mdi-menu"></i>
+            </button>
+           
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+              <span class="mdi mdi-menu"></span>
+            </button>
+          </div>
+        </nav>
+
+        
+        <div class="main-panel">
+          <div class="content-wrapper">
+
+            
+            <div class="calendar-container">
+              <div class="calendar-header-nav">
+                <button id="prevMonth">&lt;</button>
+                <h2 id="monthYear"></h2>
+                <button id="nextMonth">&gt;</button>
+              </div>
+            
+              <div class="calendar-header">
+                <div>Sun</div>
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+              </div>
+            
+              <div id="calendar" class="calendar"></div>
+            </div>
+            
+            <!-- <div class="calendar-container">
+              <div class="calendar-header-nav">
+                <button id="prevMonth">&lt;</button>
+                <h2 id="monthYear"></h2>
+                <button id="nextMonth">&gt;</button>
+              </div>
+          
+              <div class="calendar-header">
+                <div>Sun</div>
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+              </div>
+          
+              <div id="calendar" class="calendar"></div>
+            </div> -->
+          
+          
+
+
+            
+              
+           
+          </div> 
+          <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
+              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap dashboard template</a> from Bootstrapdash.com</span>
+            </div>
+          </footer>
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="../../assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="../../assets/js/off-canvas.js"></script>
+    <script src="../../assets/js/hoverable-collapse.js"></script>
+    <script src="../../assets/js/misc.js"></script>
+    <script src="../../assets/js/chart.js"></script>
+    <!-- FullCalendar JS -->
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const calendarEl = document.getElementById('eventCalendar');
+        const bookings = JSON.parse(localStorage.getItem("eventBookings")) || [];
+      
+        const events = bookings.map(booking => ({
+          title: booking.eventType + " - " + booking.name,
+          start: booking.date, // 'YYYY-MM-DD' format
+          color: "#f56954" // red for booked
+        }));
+      
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth',
+          height: 'auto',
+          events: events,
+          dateClick: function (info) {
+            const isBooked = bookings.some(b => b.date === info.dateStr);
+            if (isBooked) {
+              alert("This date already has a booking!");
+            } else {
+              alert("This date is available for booking.");
+            }
+          }
+        });
+      
+        calendar.render();
+      });
+     
+      const monthYearEl = document.getElementById("monthYear");
+const calendarEl = document.getElementById("calendar");
+const prevBtn = document.getElementById("prevMonth");
+const nextBtn = document.getElementById("nextMonth");
+
+let currentDate = new Date();
+
+function loadCalendar(month, year) {
+  calendarEl.innerHTML = ""; // Clear previous calendar content
+
+  // Get the events from localStorage
+  const bookings = JSON.parse(localStorage.getItem("eventBookings")) || [];
+  const bookedDatesMap = {};
+
+  // Map booked dates to events
+  bookings.forEach(b => {
+    const date = new Date(b.date);
+    if (date.getMonth() === month && date.getFullYear() === year) {
+      const day = date.getDate();
+      if (!bookedDatesMap[day]) bookedDatesMap[day] = [];
+      bookedDatesMap[day].push(b); // Add the event to the map
+    }
+  });
+
+  // Get the first day of the month and the total number of days in the month
+  const firstDay = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  // Update header with the month and year
+  const monthNames = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  monthYearEl.textContent = `${monthNames[month]} ${year}`;
+
+  // Add blank spaces for days before the 1st day of the month
+  for (let i = 0; i < firstDay; i++) {
+    calendarEl.appendChild(document.createElement("div"));
+  }
+
+  // Loop through all the days of the month
+  for (let day = 1; day <= daysInMonth; day++) {
+    const dayDiv = document.createElement("div");
+    dayDiv.classList.add("calendar-day");
+    dayDiv.textContent = day;
+
+    // Check if this day has any bookings and add event info
+    if (bookedDatesMap[day]) {
+      dayDiv.classList.add("booked");
+
+      // Create a tooltip that will show event details
+      const tooltip = document.createElement("div");
+      tooltip.classList.add("tooltip");
+
+      bookedDatesMap[day].forEach(event => {
+        tooltip.innerHTML += `
+          <strong>${event.eventType}</strong><br>
+          ${event.name} (${event.attendees} people)<br><br>
+        `;
+      });
+
+      // Add the tooltip to the day
+      dayDiv.appendChild(tooltip);
+    }
+
+    // Append the day div to the calendar
+    calendarEl.appendChild(dayDiv);
+  }
+}
+
+// Change month when the buttons are clicked
+function changeMonth(diff) {
+  currentDate.setMonth(currentDate.getMonth() + diff);
+  loadCalendar(currentDate.getMonth(), currentDate.getFullYear());
+}
+
+// Event listeners for the prev and next month buttons
+prevBtn.addEventListener("click", () => changeMonth(-1));
+nextBtn.addEventListener("click", () => changeMonth(1));
+
+// Initial load of the calendar
+loadCalendar(currentDate.getMonth(), currentDate.getFullYear());
+
+</script>
+  </body>
+</html>

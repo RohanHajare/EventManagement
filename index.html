@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Rohan Hajare</title>
+    <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css" />
+    <link rel="stylesheet" href="assets/vendors/flag-icon-css/css/flag-icon.min.css" />
+    <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css" />
+    <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="shortcut icon" href="assets/images/favicon.png" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('totalSubmissions').textContent = localStorage.getItem('totalSubmissions') || 0;
+        document.getElementById('totalEvents').textContent = localStorage.getItem('totalEvents') || 0;
+      });
+    </script>
+    
+
+  </head>
+  <body>
+    <div class="container-scroller">
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <div class="text-center sidebar-brand-wrapper d-flex align-items-center">
+          <a class="sidebar-brand brand-logo" href="index.html"><img src="assets/images/main_logo.png" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo-mini pl-4 pt-3" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
+        </div>
+        <ul class="nav">
+          <li class="nav-item nav-profile">
+            <a href="#" class="nav-link">
+              <div class="nav-profile-image">
+                <img src="assets/images/faces/face15.jpg" alt="profile" />
+                <span class="login-status online"></span>
+                <!--change to offline or busy as needed-->
+              </div>
+              <div class="nav-profile-text d-flex flex-column pr-3">
+                <span class="font-weight-medium mb-2">Rohan Hajare</span>
+                <span class="font-weight-normal"># Event Manager</span>
+              </div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="mdi mdi-home menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="../../pages/calender/calender.html">
+              <i class="mdi mdi-contacts menu-icon"></i>
+              <span class="menu-title">Calender</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/forms/basic_elements.html">
+              <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+              <span class="menu-title">Forms</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../pages/event/event.html">
+              <i class="mdi mdi-chart-bar menu-icon"></i>
+              <span class="menu-title">events</span>
+            </a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="pages/tables/basic-table.html">
+              <i class="mdi mdi-table-large menu-icon"></i>
+              <span class="menu-title">Tables</span>
+            </a>
+          </li> -->
+          <!-- <li class="nav-item">
+            <span class="nav-link" href="#">
+              <span class="menu-title">Docs</span>
+            </span>
+          </li> -->
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="https://www.bootstrapdash.com/demo/breeze-free/documentation/documentation.html">
+              <i class="mdi mdi-file-document-box menu-icon"></i>
+              <span class="menu-title">Documentation</span>
+            </a>
+          </li> -->
+          <!-- <li class="nav-item sidebar-actions">
+            <div class="nav-link">
+              <div class="mt-4">
+                <div class="border-none">
+                  <p class="text-black">Notification</p>
+                </div>
+                <ul class="mt-4 pl-0">
+                  <li>Sign Out</li>
+                </ul>
+              </div>
+            </div>
+          </li> -->
+        </ul>
+      </nav>
+      <div class="container-fluid page-body-wrapper">
+        <div id="theme-settings" class="settings-panel">
+          <i class="settings-close mdi mdi-close"></i>
+          <p class="settings-heading">SIDEBAR SKINS</p>
+          <div class="sidebar-bg-options selected" id="sidebar-default-theme">
+            <div class="img-ss rounded-circle bg-light border mr-3"></div> Default
+          </div>
+          <div class="sidebar-bg-options" id="sidebar-dark-theme">
+            <div class="img-ss rounded-circle bg-dark border mr-3"></div> Dark
+          </div>
+          <p class="settings-heading mt-2">HEADER SKINS</p>
+          <div class="color-tiles mx-0 px-4">
+            <div class="tiles light"></div>
+            <div class="tiles dark"></div>
+          </div>
+        </div>
+        <nav class="navbar col-lg-12 col-12 p-lg-0 fixed-top d-flex flex-row">
+          <div class="navbar-menu-wrapper d-flex align-items-stretch justify-content-between">
+            <a class="navbar-brand brand-logo-mini align-self-center d-lg-none" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
+            <button class="navbar-toggler navbar-toggler align-self-center mr-2" type="button" data-toggle="minimize">
+              <i class="mdi mdi-menu"></i>
+            </button>
+         
+             
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+              <span class="mdi mdi-menu"></span>
+            </button>
+          </div>
+        </nav>
+
+
+       
+        
+
+
+        <!-- main panel start -->
+        <div class="main-panel">
+          <div class="content-wrapper pb-0">
+            <div class="page-header flex-wrap">
+              <h3 class="mb-0"> Hi, welcome...! <span class="pl-0 h6 pl-sm-2 text-muted d-inline-block">This is event booking system.</span>
+              </h3>
+            </div>
+
+            <div class="summary-cards row mb-4">
+              <div class="col-md-4">
+                <div class="card text-white bg-primary">
+                  <div class="card-body">
+                    <h5>Total Bookings</h5>
+                    <h3 id="totalBookings">0</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card text-white bg-success">
+                  <div class="card-body">
+                    <h5>Upcoming Events</h5>
+                    <h3 id="upcomingEvents">0</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card text-white bg-warning">
+                  <div class="card-body">
+                    <h5>Today's Events</h5>
+                    <h3 id="todaysEvents">0</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="card mt-4">
+              <div class="card-body">
+                <h4 class="card-title">Event Type Distribution</h4>
+                <canvas id="eventTypeChart" height="120"></canvas>
+              </div>
+            </div>
+          
+
+          </div>
+          <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            </div>
+          </footer>
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <script src="assets/vendors/flot/jquery.flot.js"></script>
+    <script src="assets/vendors/flot/jquery.flot.resize.js"></script>
+    <script src="assets/vendors/flot/jquery.flot.categories.js"></script>
+    <script src="assets/vendors/flot/jquery.flot.fillbetween.js"></script>
+    <script src="assets/vendors/flot/jquery.flot.stack.js"></script>
+    <script src="assets/vendors/flot/jquery.flot.pie.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="assets/js/off-canvas.js"></script>
+    <script src="assets/js/hoverable-collapse.js"></script>
+    <script src="assets/js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="assets/js/dashboard.js"></script>
+    <!-- End custom js for this page -->
+  </body>
+  <script>
+    function updateDashboardSummary() {
+      const bookings = JSON.parse(localStorage.getItem("eventBookings")) || [];
+  
+      const total = bookings.length;
+      const today = new Date().toISOString().split("T")[0];
+  
+      const upcoming = bookings.filter(b => b.date > today).length;
+      const todayEvents = bookings.filter(b => b.date === today).length;
+  
+      document.getElementById("totalBookings").innerText = total;
+      document.getElementById("upcomingEvents").innerText = upcoming;
+      document.getElementById("todaysEvents").innerText = todayEvents;
+    }
+  
+    function renderEventTypeChart() {
+      const bookings = JSON.parse(localStorage.getItem("eventBookings")) || [];
+    
+      const typeCounts = {};
+    
+      bookings.forEach((booking) => {
+        const type = booking.eventType;
+        typeCounts[type] = (typeCounts[type] || 0) + 1;
+      });
+    
+      const labels = Object.keys(typeCounts);
+      const data = Object.values(typeCounts);
+    
+      const ctx = document.getElementById('eventTypeChart').getContext('2d');
+    
+      if (window.eventChartInstance) {
+        window.eventChartInstance.destroy(); // Destroy previous chart if exists
+      }
+    
+      window.eventChartInstance = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Number of Bookings',
+            data: data,
+            backgroundColor: [
+              '#4e73df',
+              '#1cc88a',
+              '#36b9cc',
+              '#f6c23e',
+              '#e74a3b',
+              '#858796'
+            ],
+            borderRadius: 6,
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              display: false
+            },
+            tooltip: {
+              callbacks: {
+                label: function (context) {
+                  return ` ${context.parsed.y} bookings`;
+                }
+              }
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'Bookings'
+              }
+            },
+            x: {
+              title: {
+                display: true,
+                text: 'Event Type'
+              }
+            }
+          }
+        }
+      });
+    }
+    
+    document.addEventListener('DOMContentLoaded', function () {
+      const calendarEl = document.getElementById('eventCalendar');
+      const bookings = JSON.parse(localStorage.getItem("eventBookings")) || [];
+    
+      const events = bookings.map(booking => ({
+        title: booking.eventType + " - " + booking.name,
+        start: booking.date, // 'YYYY-MM-DD' format
+        color: "#f56954" // red for booked
+      }));
+    
+      const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        height: 'auto',
+        events: events,
+        dateClick: function (info) {
+          const isBooked = bookings.some(b => b.date === info.dateStr);
+          if (isBooked) {
+            alert("This date already has a booking!");
+          } else {
+            alert("This date is available for booking.");
+          }
+        }
+      });
+    
+    });
+
+    // Run it once on page load
+    updateDashboardSummary();
+    renderEventTypeChart();
+     render();
+
+  </script>
+  
+</html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Even Booking</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css" />
+  <link rel="stylesheet" href="../../assets/vendors/flag-icon-css/css/flag-icon.min.css" />
+  <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css" />
+  <link rel="stylesheet" href="../../assets/vendors/select2/select2.min.css" />
+  <link rel="stylesheet" href="../../assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <link rel="shortcut icon" href="../../assets/images/favicon.png" />
+
+ 
+
+
+
+  <script>
+    // Wait for DOM to load
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('bookingForm');
+      const summary = document.getElementById('bookingSummary');
+      const nameSpan = document.getElementById('summaryName');
+      const emailSpan = document.getElementById('summaryEmail');
+      const eventSpan = document.getElementById('summaryEvent');
+      const dateSpan = document.getElementById('summaryDate');
+
+      let totalSubmissions = parseInt(localStorage.getItem('totalSubmissions')) || 0;
+      let totalEvents = parseInt(localStorage.getItem('totalEvents')) || 0;
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Simulate submission
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const event = document.getElementById('eventType').value;
+        const date = document.getElementById('eventDate').value;
+
+        // Update summary
+        nameSpan.textContent = name;
+        emailSpan.textContent = email;
+        eventSpan.textContent = event;
+        dateSpan.textContent = date;
+
+        // Animate summary section
+        summary.style.display = 'block';
+        summary.style.opacity = 0;
+        summary.style.transition = 'opacity 0.5s ease-in-out';
+        setTimeout(() => {
+          summary.style.opacity = 1;
+        }, 10);
+
+        // Save count to localStorage
+        totalSubmissions++;
+        totalEvents++;
+        localStorage.setItem('totalSubmissions', totalSubmissions);
+        localStorage.setItem('totalEvents', totalEvents);
+
+        // Optional: Reset form
+        form.reset();
+      });
+    });
+  </script>
+
+
+</head>
+
+<body>
+  <div class="container-scroller">
+
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <div class="text-center sidebar-brand-wrapper d-flex align-items-center">
+        <a class="sidebar-brand brand-logo" href="../../index.html"><img src="../../assets/images/main_logo.png"
+            alt="logo" /></a>
+        <a class="sidebar-brand brand-logo-mini pl-4 pt-3" href="../../index.html"><img
+            src="../../assets/images/logo-mini.svg" alt="logo" /></a>
+      </div>
+      <ul class="nav">
+        <li class="nav-item nav-profile">
+          <a href="#" class="nav-link">
+            <div class="nav-profile-image">
+              <img src="../../assets/images/faces/face15.jpg" alt="profile" />
+              <span class="login-status online"></span>
+
+            </div>
+            <div class="nav-profile-text d-flex flex-column pr-3">
+              <span class="font-weight-medium mb-2">Rohan Hajare</span>
+              <span class="font-weight-normal"># Event Manager</span>
+            </div>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../../index.html">
+            <i class="mdi mdi-home menu-icon"></i>
+            <span class="menu-title">Dashboard</span>
+          </a>
+        </li>
+       
+        <li class="nav-item">
+          <a class="nav-link" href="../../pages/calender/calender.html">
+            <i class="mdi mdi-contacts menu-icon"></i>
+            <span class="menu-title">Calender</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../../pages/forms/basic_elements.html">
+            <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+            <span class="menu-title">Forms</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../../pages/event/event.html">
+            <i class="mdi mdi-chart-bar menu-icon"></i>
+            <span class="menu-title">events</span>
+          </a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="../../pages/tables/basic-table.html">
+            <i class="mdi mdi-table-large menu-icon"></i>
+            <span class="menu-title">Tables</span>
+          </a>
+        </li> -->
+
+      </ul>
+    </nav>
+    <div class="container-fluid page-body-wrapper">
+      <div id="theme-settings" class="settings-panel">
+        <i class="settings-close mdi mdi-close"></i>
+        <p class="settings-heading">SIDEBAR SKINS</p>
+        <div class="sidebar-bg-options selected" id="sidebar-default-theme">
+          <div class="img-ss rounded-circle bg-light border mr-3"></div> Default
+        </div>
+        <div class="sidebar-bg-options" id="sidebar-dark-theme">
+          <div class="img-ss rounded-circle bg-dark border mr-3"></div> Dark
+        </div>
+        <p class="settings-heading mt-2">HEADER SKINS</p>
+        <div class="color-tiles mx-0 px-4">
+          <div class="tiles light"></div>
+          <div class="tiles dark"></div>
+        </div>
+      </div>
+      <nav class="navbar col-lg-12 col-12 p-lg-0 fixed-top d-flex flex-row">
+        <div class="navbar-menu-wrapper d-flex align-items-stretch justify-content-between">
+          <a class="navbar-brand brand-logo-mini align-self-center d-lg-none" href="../../index.html"><img
+              src="../../assets/images/logo-mini.svg" alt="logo" /></a>
+          <button class="navbar-toggler navbar-toggler align-self-center mr-2" type="button" data-toggle="minimize">
+            <i class="mdi mdi-menu"></i>
+          </button>
+         
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+            data-toggle="offcanvas">
+            <span class="mdi mdi-menu"></span>
+          </button>
+        </div>
+      </nav>
+      <!-- <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title">Event Booking Form</h3>
+             
+            </div>
+            <div class="row">
+              <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Basic form elements</h4>
+                    <p class="card-description">Basic form elements</p>
+                    <form class="forms-sample">
+                      <div class="form-group">
+                        <label for="exampleInputName1">Name</label>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" />
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail3">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email" />
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword4">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password" />
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleSelectGender">Gender</label>
+                        <select class="form-control" id="exampleSelectGender">
+                          <option>Male</option>
+                          <option>Female</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label>File upload</label>
+                        <input type="file" name="img[]" class="file-upload-default" />
+                        <div class="input-group col-xs-12">
+                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image" />
+                          <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-primary" type="button"> Upload </button>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputCity1">City</label>
+                        <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location" />
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleTextarea1">Textarea</label>
+                        <textarea
+                          class="form-control"
+                          id="exampleTextarea1"
+                          rows="4"
+                        ></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-primary mr-2"> Submit </button>
+                      <button class="btn btn-light">Cancel</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+            
+            
+         
+           
+            </div>
+          </div>
+          <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            </div>
+          </footer>
+        </div> -->
+
+
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="page-header">
+            <h3 class="page-title">Event Booking Form</h3>
+          </div>
+
+          <div class="row">
+            <div class="col-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Book Your Event</h4>
+                  <p class="card-description">Fill out the form to book your event</p>
+
+                  <form class="forms-sample" id="bookingForm">
+                    <div class="form-group">
+                      <label for="name">Name <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" id="name" placeholder="Enter your name" required />
+                    </div>
+                  
+                    <div class="form-group">
+                      <label for="email">Email address <span class="text-danger">*</span></label>
+                      <input type="email" class="form-control" id="email" placeholder="Enter your email" required />
+                    </div>
+                  
+                    <div class="form-group">
+                      <label for="contact">Contact Number <span class="text-danger">*</span></label>
+                      <input type="tel" class="form-control" id="contact" placeholder="Enter contact number" required pattern="[0-9]{10}" />
+                    </div>
+                  
+                    <div class="form-group">
+                      <label for="eventType">Event Type <span class="text-danger">*</span></label>
+                      <select class="form-control" id="eventType" required>
+                        <option value="">Select an event</option>
+                        <option>Wedding</option>
+                        <option>Birthday Party</option>
+                        <option>Conference</option>
+                        <option>Concert</option>
+                        <option>Workshop</option>
+                      </select>
+                    </div>
+                  
+                    <div class="form-group">
+                      <label for="attendees">Number of Attendees <span class="text-danger">*</span></label>
+                      <input type="number" class="form-control" id="attendees" placeholder="E.g. 100" required min="1" />
+                    </div>
+                  
+                    <!-- <div class="form-group">
+                      <label for="eventDate">Event Date <span class="text-danger">*</span></label>
+                      <input type="date" class="form-control" id="eventDate" required />
+                    </div> -->
+                    <div class="form-group">
+                      <label for="eventDate">Event Date <span class="text-danger">*</span></label>
+                      <input type="date" class="form-control" id="eventDate" required />
+                      <small id="dateError" class="form-text text-danger" style="display: none;">Date already booked. Please choose another date.</small>
+                    </div>
+
+                  
+                    <div class="form-group">
+                      <label for="additionalInfo">Additional Details</label>
+                      <textarea class="form-control" id="additionalInfo" rows="4" placeholder="Enter any extra details..."></textarea>
+                    </div>
+                  
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button type="reset" class="btn btn-light">Cancel</button>
+                  </form>
+                  
+
+                  <!-- Success Modal -->
+                  <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header bg-success text-white">
+                          <h5 class="modal-title" id="successModalLabel">Booking Successful</h5>
+                          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          🎉 Your event has been booked successfully!
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-success" data-bs-dismiss="modal">Okay</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between"></div>
+          </footer>
+        </div>
+      </div>
+
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
+  <script src="../../assets/vendors/select2/select2.min.js"></script>
+  <script src="../../assets/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+  <script src="../../assets/js/off-canvas.js"></script>
+  <script src="../../assets/js/hoverable-collapse.js"></script>
+  <script src="../../assets/js/misc.js"></script>
+  <script src="../../assets/js/file-upload.js"></script>
+  <script src="../../assets/js/typeahead.js"></script>
+  <script src="../../assets/js/select2.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
+  <script>
+   // Function to disable booked/unavailable dates in the event date picker
+   function disableUnavailableDates() {
+    const bookedDates = JSON.parse(localStorage.getItem("eventBookings")) || [];
+    const unavailableDates = bookedDates.map(event => event.date);
+    const eventDateInput = document.getElementById("eventDate");
+    const dateError = document.getElementById("dateError");
+  
+    const minDate = new Date();
+    eventDateInput.min = minDate.toISOString().split('T')[0];
+  
+    eventDateInput.addEventListener("input", function () {
+      const selectedDate = eventDateInput.value;
+  
+      if (unavailableDates.includes(selectedDate)) {
+        eventDateInput.setCustomValidity("Date already booked. Please choose another date.");
+        dateError.style.display = "block"; // Show the message
+      } else {
+        eventDateInput.setCustomValidity("");
+        dateError.style.display = "none"; // Hide the message
+      }
+    });
+  }
+  
+  
+// Form Submission Handler
+document.getElementById("bookingForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  // Get form values
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const contact = document.getElementById("contact").value.trim();
+  const eventType = document.getElementById("eventType").value;
+  const attendees = document.getElementById("attendees").value.trim();
+  const eventDate = document.getElementById("eventDate").value;
+  const additionalInfo = document.getElementById("additionalInfo").value.trim();
+
+  // Validate required fields
+  if (!name || !email || !contact || !eventType || !attendees || !eventDate) {
+    alert("Please fill in all required fields.");
+    return;
+  }
+
+  // Save the new booking to localStorage
+  let bookings = JSON.parse(localStorage.getItem("eventBookings")) || [];
+  bookings.push({
+    name,
+    email,
+    contact,
+    eventType,
+    attendees,
+    date: eventDate,
+    additionalInfo,
+  });
+  localStorage.setItem("eventBookings", JSON.stringify(bookings));
+
+  // Show success modal (replace with your modal code)
+  const successModal = new bootstrap.Modal(document.getElementById("successModal"));
+  successModal.show();
+
+  // Optionally clear the form
+  document.getElementById("bookingForm").reset();
+
+  // Update dashboard stats (optional, if you have this function)
+  updateDashboardSummary();
+});
+
+// Call the disableUnavailableDates function on page load
+window.onload = function() {
+  disableUnavailableDates();
+
+};
+
+    // Dashboard summary function
+    function updateDashboardSummary() {
+      const bookings = JSON.parse(localStorage.getItem("eventBookings")) || [];
+
+      const total = bookings.length;
+      const today = new Date().toISOString().split("T")[0];
+
+      const upcoming = bookings.filter(b => b.date > today).length;
+      const todayEvents = bookings.filter(b => b.date === today).length;
+
+      document.getElementById("totalBookings").innerText = total;
+      document.getElementById("upcomingEvents").innerText = upcoming;
+      document.getElementById("todaysEvents").innerText = todayEvents;
+    }
+
+    // On page load
+    updateDashboardSummary();
+  </script>
+</body>
+
+</html>
